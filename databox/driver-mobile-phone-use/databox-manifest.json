@@ -1,0 +1,40 @@
+{
+	"manifest-version": 1,
+	"name": "driver-mobile-phone-use",
+	"version": "0.0.1",
+	"description": "A Databox driver that simulates mobile phone user data and saves them to a datastore",
+	"author": "Kleomenis Katevas <k.katevas@imperial.ac.uk> ()",
+	"license": "MIT",
+	"databox-type": "driver",
+	"tags": [
+		"store",
+		"blob",
+		"db",
+		"native",
+		"json",
+		"timeseries"
+	],
+	"homepage": "https://github.com/minoskt/driver-mobile-phone-user",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/minoskt/driver-mobile-phone-user.git"
+	},
+	"external-whitelist": [
+		{
+			"urls": [
+			],
+			"description": ""
+		}
+	],
+	"resource-requirements": {
+		"store": "core-store"
+	},
+	"provides": [
+		{
+			"data-source-type": "mobilePhoneData",
+			"description": "Mobile phone use data",
+			"store-type": "tsblob",
+			"schema": {}
+		}
+	]
+}

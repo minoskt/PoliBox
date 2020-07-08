@@ -1,0 +1,52 @@
+{
+  "name": "driver-reddit-simulator",
+  "version": "1.0.0",
+  "description": "A Databox driver that simulates Reddit user data and saves them to a datastore",
+  "config": {
+    "registry": "localhost:5000"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha",
+    "start": "node ./src/main.js",
+    "build": "docker build -t databox/driver-motruelayernzo .",
+    "deploy": "docker tag databox/driver-reddit-simulator $npm_package_config_registry/driver-reddit-simulator && docker push $npm_package_config_registry/driver-reddit-simulator",
+    "build-arm": "docker build -f Dockerfile-arm -t databox/driver-reddit-simulator-arm .",
+    "deploy-arm": "docker tag databox/driver-reddit-simulator-arm $npm_package_config_registry/driver-reddit-simulator-arm && docker push $npm_package_config_registry/driver-reddit-simulator-arm",
+    "clean": "node ./node_modules/modclean/bin/modclean.js -p ./node_modules/ -r",
+    "getshell": "docker exec -i -t driver-reddit-simulator /bin/bash",
+    "kill": "docker kill driver-reddit-simulator",
+    "attach": "docker attach driver-reddit-simulator",
+    "shell": "docker run -i -t databox/driver-reddit-simulator /bin/bash",
+    "local": "docker run -i -t databox/driver-reddit-simulator"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/me-box/driver-reddit-simulator.git"
+  },
+  "keywords": [
+    "Databox",
+    "reddit",
+    "stream"
+  ],
+  "author": "Kleomenis Katevas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/me-box/driver-reddit-simulator/issues"
+  },
+  "homepage": "https://github.com/me-box/driver-reddit-simulator#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "modclean": "^2.1.2",
+    "node-databox": "^0.10.8",
+    "nonce-generator": "^1.0.2",
+    "oauth": "^0.9.15",
+    "pug": "^2.0.3",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "assert": "^1.5.0",
+    "mocha": "^5.2.0",
+    "supertest": "^3.4.2"
+  }
+}
