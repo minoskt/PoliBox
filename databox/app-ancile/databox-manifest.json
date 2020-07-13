@@ -27,6 +27,14 @@
 			"risks": "TBD",
 			"benefits": "Use Ancile for policy management.",
 			"datastores": [ "redditSimulatorData" ]
+		},
+		{
+			"name": "Mobile Phone Use Data",
+			"purpose": "To connect DataBox with AncileCore",
+			"install": "required",
+			"risks": "TBD",
+			"benefits": "Use Ancile for policy management.",
+			"datastores": [ "MPUSimulatorData" ]
 		}
 	],
 	"resource-requirements": {
@@ -38,6 +46,13 @@
 			"required": true,
 			"name": "redditSimulatorData",
 			"clientid": "redditSimulatorData",
+			"granularities": []
+		},
+		{
+			"type": "MPUSimulatorData",
+			"required": true,
+			"name": "MPUSimulatorData",
+			"clientid": "MPUSimulatorData",
 			"granularities": []
 		}
 	]
