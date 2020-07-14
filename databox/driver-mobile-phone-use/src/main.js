@@ -17,7 +17,7 @@ try {
   MPUSimulatorDefaultSettings = require('./MPU-simulator-secret.json');
 } catch (e) {
   MPUSimulatorDefaultSettings = {
-    'client_id': 'u000',
+    'client_id': 'u000.json',
     'hostname': '127.0.0.1',
   };
 }
