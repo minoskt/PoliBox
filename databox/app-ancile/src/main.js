@@ -14,16 +14,23 @@ const DATABOX_TESTING = !(process.env.DATABOX_VERSION);
 const PORT = DATABOX_TESTING ? 8090 : process.env.PORT || '8080';
 
 //this will ref the timeseriesblob client which will observe and write to the databox actuator (created in the driver)
-let store;
+let stores = {};
 
 if (DATABOX_TESTING) {
-  store = databox.NewStoreClient(DATABOX_ZMQ_ENDPOINT, DATABOX_ARBITER_ENDPOINT, false);
+  stores['redditSimulatorData'] = databox.NewStoreClient(DATABOX_ZMQ_ENDPOINT, DATABOX_ARBITER_ENDPOINT, false);
+  stores['MPUSimulatorData'] = databox.NewStoreClient(DATABOX_ZMQ_ENDPOINT, DATABOX_ARBITER_ENDPOINT, false);
 } else {
   const redditSimulatorData = databox.HypercatToDataSourceMetadata(process.env['DATASOURCE_redditSimulatorData']);
   console.log('redditSimulatorData: ', redditSimulatorData);
   const redditSimulatorDataStore = databox.GetStoreURLFromHypercat(process.env['DATASOURCE_redditSimulatorData']);
   console.log('redditSimulatorDataStore: ', redditSimulatorDataStore);
-  store = databox.NewStoreClient(redditSimulatorDataStore, DATABOX_ARBITER_ENDPOINT, false);
+  stores['redditSimulatorData'] = databox.NewStoreClient(redditSimulatorDataStore, DATABOX_ARBITER_ENDPOINT, false);
+
+  const mpuSimulatorData = databox.HypercatToDataSourceMetadata(process.env['DATASOURCE_MPUSimulatorData']);
+  console.log('mpuSimulatorData: ', mpuSimulatorData);
+  const mpuSimulatorDataStore = databox.GetStoreURLFromHypercat(process.env['DATASOURCE_MPUSimulatorData']);
+  console.log('mpuSimulatorDataStore: ', mpuSimulatorDataStore);
+  stores['MPUSimulatorData'] = databox.NewStoreClient(mpuSimulatorDataStore, DATABOX_ARBITER_ENDPOINT, false);
 }
 
 const app = express();
@@ -58,7 +65,7 @@ app.get('/ui/tsblob/latest', function (req, res) {
   }
 
   // read data
-  store.TSBlob.Latest(data_source_id).then((result) => {
+  stores[data_source_id].TSBlob.Latest(data_source_id).then((result) => {
     console.log('result:', data_source_id, result);
     res.type('json');
     res.send({
@@ -80,7 +87,7 @@ app.get('/ui/tsblob/earliest', function (req, res) {
   }
 
   // read data
-  store.TSBlob.Earliest(data_source_id).then((result) => {
+  stores[data_source_id].TSBlob.Earliest(data_source_id).then((result) => {
     console.log('result:', data_source_id, result);
     res.type('json');
     res.send({
@@ -107,7 +114,7 @@ app.get('/ui/tsblob/last_n', function (req, res) {
   }
 
   // read data
-  store.TSBlob.LastN(data_source_id, n).then((result) => {
+  stores[data_source_id].TSBlob.LastN(data_source_id, n).then((result) => {
     console.log('result:', data_source_id, result);
     res.type('json');
     res.send({
@@ -135,7 +142,7 @@ app.get('/ui/tsblob/first_n', function (req, res) {
   }
 
   // read data
-  store.TSBlob.FirstN(data_source_id, n).then((result) => {
+  stores[data_source_id].TSBlob.FirstN(data_source_id, n).then((result) => {
     console.log('result:', data_source_id, result);
     res.type('json');
     res.send({
@@ -163,7 +170,7 @@ app.get('/ui/tsblob/since', function (req, res) {
   }
 
   // read data
-  store.TSBlob.Since(data_source_id, since_timestamp).then((result) => {
+  stores[data_source_id].TSBlob.Since(data_source_id, since_timestamp).then((result) => {
     console.log('result:', data_source_id, result);
     res.type('json');
     res.send({
@@ -196,7 +203,7 @@ app.get('/ui/tsblob/range', function (req, res) {
   }
 
   // read data
-  store.TSBlob.Range(data_source_id, from_timestamp, to_timestamp).then((result) => {
+  stores[data_source_id].TSBlob.Range(data_source_id, from_timestamp, to_timestamp).then((result) => {
     console.log('result:', data_source_id, result);
     res.type('json');
     res.send({
@@ -215,7 +222,7 @@ app.get('/ui/tsblob/length', function (req, res) {
   const { data_source_id } = req.query;
 
   // read data
-  store.TSBlob.Length(data_source_id).then((result) => {
+  stores[data_source_id].TSBlob.Length(data_source_id).then((result) => {
     console.log('result:', data_source_id, result);
     res.type('json');
     res.send({
