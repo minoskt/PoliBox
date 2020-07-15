@@ -26,13 +26,13 @@ You can now stop Databox using `docker run --rm -v /var/run/docker.sock:/var/run
 
 ### Install required apps and drivers
 
-Copy both `driver-reddit-simulator` and `app-ancile` folders (located under `databox`) into `databox_dev\build`.
+Copy `driver-reddit-simulator`, `driver-mobile-phone-use` and `app-ancile` folders (located under `databox`) into `databox_dev\build`.
 
-Under `databox_dev`, run `./databox-install-component driver-reddit-simulator databoxsystems 0.5.2` and `./databox-install-component app-ancile databoxsystems 0.5.2`.
+Under `databox_dev`, run `./databox-install-component driver-reddit-simulator databoxsystems 0.5.2`, `./databox-install-component driver-mobile-phone-use databoxsystems 0.5.2`, and `./databox-install-component app-ancile databoxsystems 0.5.2`.
 
-Start Databox again and go to: `My App -> App Store` and upload the two manifests (`databox-manifest.json`) from `driver-reddit-simulator` and `app-ancile` folders. The new driver and app will now appear in the App Store.
+Start Databox again and go to: `My App -> App Store` and upload the three manifests (`databox-manifest.json`) from `driver-reddit-simulator`, `driver-reddit-simulator`, and `app-ancile` folders. The new driver and app will now appear in the App Store.
 
-Go to the App Store and install `driver-reddit-simulator`. After successfully installed, click at the `driver-reddit-simulator` to see the configuration page (`Reddit Simulator Driver Configuration`), and click at `Save Configuration` to load data from `_davros` account.
+Go to the App Store and install `driver-reddit-simulator`. After successfully installed, click at the `driver-reddit-simulator` to see the configuration page (`Reddit Simulator Driver Configuration`), and click at `Save Configuration` to load data from `_davros` account. Do the same for the `driver-reddit-simulator` to load the sample (`u000.json`). This full data that this sample is from can be found at https://crawdad.org/telefonica/mobilephoneuse/20190429/, this data can be converted to the json format of the sample with the included converter (`tools/csv_to_json.py`).
 
 Go to the App Store and install `app-ancile`.
 
