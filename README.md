@@ -37,7 +37,11 @@ Under `databox_dev`, run:
 
 Start Databox again and go to: `My App -> App Store` and upload the three manifests (`databox-manifest.json`) from `driver-reddit-simulator`, `driver-reddit-simulator`, and `app-ancile` folders. The new driver and app will now appear in the App Store.
 
-Go to the App Store and install `driver-reddit-simulator`. After successfully installed, click at the `driver-reddit-simulator` to see the configuration page (`Reddit Simulator Driver Configuration`), and click at `Save Configuration` to load data from `_davros` account. Do the same for the `driver-mobile-phone-use` to load the sample (`u000.json`). Full data for Mobile Phone Use dataset can be found at https://crawdad.org/telefonica/mobilephoneuse/20190429/. You need to convert it into json format using the included [converter](tools/csv_to_json.py).
+Go to the App Store and install `driver-reddit-simulator`. After successfully installed, click at the `driver-reddit-simulator` to see the configuration page (`Reddit Simulator Driver Configuration`), and click at `Save Configuration` to load data from `_davros` account. Do the same for the `driver-mobile-phone-use` to load the sample (`u000.json`).
+
+Full data for Mobile Phone Use dataset can be found at https://crawdad.org/telefonica/mobilephoneuse/20190429/. You need to convert it into json format using the included [converter](tools/csv_to_json.py).
+
+Full data for the Reddit Dataset can be found at: https://drive.google.com/file/d/1yAmEbx7ZCeL45hYj5iEOvNv7k9UoX3vp/view?usp=sharing.
 
 Go to the App Store and install `app-ancile`.
 
