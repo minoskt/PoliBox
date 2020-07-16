@@ -14,32 +14,36 @@ You first need to install and configure the Databox platform (https://github.com
 
 ### Install Databox
 
-Git clone [Databox](https://github.com/me-box/databox) into `PoliBox\databox_dev` using `git clone git@github.com:me-box/databox.git databox_dev`.
+Git clone [Databox](https://github.com/me-box/databox) into `PoliBox\databox_dev` using `> git clone git@github.com:me-box/databox.git databox_dev`.
 
-Start Databox using `docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --network host -t databoxsystems/databox:0.5.2 /databox start -sslHostName $(hostname)`.
+Start Databox using:
+`> docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --network host -t databoxsystems/databox:0.5.2 /databox start -sslHostName $(hostname)`.
 
 Wait until Databox is loaded and login to http://127.0.0.1 (non https version). Download and install the certificate. Click at "DATABOX DASHBOARD".
 
 Make sure that Databox runs correctly and you can login without any issues (password is random and you can copy it from the terminal).
 
-You can now stop Databox using `docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -t databoxsystems/databox:0.5.2 /databox stop`.
+You can now stop Databox using:
+`> docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -t databoxsystems/databox:0.5.2 /databox stop`.
 
 ### Install required apps and drivers
 
 Copy `driver-reddit-simulator`, `driver-mobile-phone-use` and `app-ancile` folders (located under `databox`) into `databox_dev\build`.
 
 Under `databox_dev`, run:
-- `./databox-install-component driver-reddit-simulator databoxsystems 0.5.2`
-- `./databox-install-component driver-mobile-phone-use databoxsystems 0.5.2`
-- `./databox-install-component app-ancile databoxsystems 0.5.2`
+- `> ./databox-install-component driver-reddit-simulator databoxsystems 0.5.2`
+- `> ./databox-install-component driver-mobile-phone-use databoxsystems 0.5.2`
+- `> ./databox-install-component app-ancile databoxsystems 0.5.2`
 
 Start Databox again and go to: `My App -> App Store` and upload the three manifests (`databox-manifest.json`) from `driver-reddit-simulator`, `driver-reddit-simulator`, and `app-ancile` folders. The new driver and app will now appear in the App Store.
 
-Go to the App Store and install `driver-reddit-simulator`. After successfully installed, click at the `driver-reddit-simulator` to see the configuration page (`Reddit Simulator Driver Configuration`), and click at `Save Configuration` to load data from `_davros` account. Do the same for the `driver-reddit-simulator` to load the sample (`u000.json`). This full data that this sample is from can be found at https://crawdad.org/telefonica/mobilephoneuse/20190429/, this data can be converted to the json format of the sample with the included converter (`tools/csv_to_json.py`).
+Go to the App Store and install `driver-reddit-simulator`. After successfully installed, click at the `driver-reddit-simulator` to see the configuration page (`Reddit Simulator Driver Configuration`), and click at `Save Configuration` to load data from `_davros` account. Do the same for the `driver-mobile-phone-use` to load the sample (`u000.json`). Full data for Mobile Phone Use dataset can be found at https://crawdad.org/telefonica/mobilephoneuse/20190429/. You need to convert them into json format using the included converter (`tools/csv_to_json.py`).
 
 Go to the App Store and install `app-ancile`.
 
-Test that reddit data can be retrieved when visiting https://127.0.0.1/app-ancile/ui/tsblob/latest?data_source_id=redditSimulatorData.
+Test that data can be retrieved when visiting:
+- https://127.0.0.1/app-ancile/ui/tsblob/latest?data_source_id=redditSimulatorData
+- https://127.0.0.1/app-ancile/ui/tsblob/latest?data_source_id=MPUSimulatorData
 
 
 ## Setting up the central node
