@@ -28,7 +28,10 @@ You can now stop Databox using `docker run --rm -v /var/run/docker.sock:/var/run
 
 Copy `driver-reddit-simulator`, `driver-mobile-phone-use` and `app-ancile` folders (located under `databox`) into `databox_dev\build`.
 
-Under `databox_dev`, run `./databox-install-component driver-reddit-simulator databoxsystems 0.5.2`, `./databox-install-component driver-mobile-phone-use databoxsystems 0.5.2`, and `./databox-install-component app-ancile databoxsystems 0.5.2`.
+Under `databox_dev`, run:
+- `./databox-install-component driver-reddit-simulator databoxsystems 0.5.2`
+- `./databox-install-component driver-mobile-phone-use databoxsystems 0.5.2`
+- `./databox-install-component app-ancile databoxsystems 0.5.2`
 
 Start Databox again and go to: `My App -> App Store` and upload the three manifests (`databox-manifest.json`) from `driver-reddit-simulator`, `driver-reddit-simulator`, and `app-ancile` folders. The new driver and app will now appear in the App Store.
 
