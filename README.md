@@ -1,6 +1,6 @@
-# PoliBox
+# PoliFL
 
-PoliBox is a decentralized, edge-based framework for policy-based personal data analytics. It brings together a number of existing established components to provide privacy-preserving analytics within a distributed setting. For more information, please read our ongoing work [Decentralized Policy-Based Private Analytics](https://arxiv.org/abs/2003.06612).
+PoliFL is a decentralized, edge-based framework for policy-based personal data analytics. It brings together a number of existing established components to provide privacy-preserving analytics within a distributed setting. For more information, please read our ongoing work [Decentralized Policy-Based Private Analytics](https://arxiv.org/abs/2003.06612).
 
 
 ## Installing and Configuring Databox
@@ -14,7 +14,7 @@ You first need to install and configure the Databox platform (https://github.com
 
 ### Install Databox
 
-Git clone [Databox](https://github.com/me-box/databox) into `PoliBox\databox_dev` using `> git clone git@github.com:me-box/databox.git databox_dev`.
+Git clone [Databox](https://github.com/me-box/databox) into `PoliFL\databox_dev` using `> git clone git@github.com:me-box/databox.git databox_dev`.
 
 Start Databox using:
 `> docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --network host -t databoxsystems/databox:0.5.2 /databox start -sslHostName $(hostname)`.
@@ -90,13 +90,13 @@ Create a RabbitMQ user to be able to connect from outside localhost.
 1. Clone this repository.
 
 ```
-git clone https://github.com/minoskt/PoliBox.git
+git clone https://github.com/minoskt/PoliFL.git
 ```
 
 2. setup a virtual environment using `venv`.
 
 ```
-> cd PoliBox
+> cd PoliFL
 > python -m venv .env
 > source .env/bin/activate
 > pip install -r requirements.txt
@@ -153,13 +153,13 @@ The key's randomart image is:
 1. Clone this repository.
 
 ```
-git clone https://github.com/minoskt/PoliBox.git
+git clone https://github.com/minoskt/PoliFL.git
 ```
 
 2. Setup a virtual environment using `venv`.
 
 ```
-> cd PoliBox
+> cd PoliFL
 > python -m venv .env
 > source .env/bin/activate
 > pip install -r requirements.txt
@@ -223,7 +223,7 @@ After you execute an evaluation script (1., 2. or 3.), copy the reported `Proces
 To start an edge node, activate the python environment and run `edge.py`.
 
 ```
-> cd PoliBox
+> cd PoliFL
 > source .env/bin/activate
 > python edge.py
 ```
@@ -233,7 +233,7 @@ To start an edge node, activate the python environment and run `edge.py`.
 Modify `federated.select_users`, `general.sample_data_policy_pairs`, and `federated.average` in `program.py` to match the number of users in `config/users.txt`. Activate the python environment and run `central.py`.
 
 ```
-> cd PoliBox
+> cd PoliFL
 > source .env/bin/activate
 > python central.py
 ```
