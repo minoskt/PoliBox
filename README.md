@@ -1,6 +1,6 @@
 # PoliFL
 
-PoliFL is a decentralized, edge-based framework for policy-based personal data analytics. It brings together a number of existing established components to provide privacy-preserving analytics within a distributed setting. For more information, please read our ongoing work [Decentralized Policy-Based Private Analytics](https://arxiv.org/abs/2003.06612).
+PoliFL is a decentralized, edge-based framework for policy-based personal data analytics. It brings together a number of existing established components to provide privacy-preserving analytics within a distributed setting. For more information, please read our ongoing work [Policy-Based Federated Learning](https://arxiv.org/abs/2003.06612).
 
 
 ## Installing and Configuring Databox
