@@ -184,35 +184,14 @@ git clone https://github.com/minoskt/PoliFL.git
 
 ### Requirements
 
-- Affective Norms for English Words (ANEW) Dataset (required file: `ANEW2010All.txt`)
 - Reddit Dataset from: https://drive.google.com/file/d/1yAmEbx7ZCeL45hYj5iEOvNv7k9UoX3vp/view?usp=sharing
 
 ### Running the evaluations
 
-You can evaluate the three use-cases:
-1. Text Filtering Task
-2. Language Modeling Task (small)
-3. Language Modeling Task (large)
+You can evaluate the use-case `Language Modeling Task`
+Run `python ancile/test/test_federated.py`.
 
-For 1., run `python anew_analyse.py`.
-For 2. and 3., run `python ancile/test/test_federated.py`.
-To switch the model between `small` and `large`, edit `ancile/lib/federated_helpers/utils/words.yaml`.
-
-For the `large` model, use:
-```
-emsize: 200
-nhid: 200
-nlayers: 2
-```
-
-For the `small` model, use:
-```
-emsize: 20
-nhid: 20
-nlayers: 1
-```
-
-After you execute an evaluation script (1., 2. or 3.), copy the reported `Process ID` and use it as an argument in: `bash eval-process.sh <Process ID>`. This script needs to be executed in parallel with the evaluation script.
+After you execute an evaluation script, copy the reported `Process ID` and use it as an argument in: `bash eval-process.sh <Process ID>`. This script needs to be executed in parallel with the evaluation script.
 
 
 
